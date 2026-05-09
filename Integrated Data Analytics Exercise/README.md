@@ -52,6 +52,23 @@ jupyter notebook
 
 Open and run notebooks **01 → 05** in sequence. Each is self-contained but they tell a continuous story. Each notebook ends with discussion prompts intended for class conversation.
 
+### 4. Or open in Colab
+
+| # | Notebook | |
+|---|----------|-|
+| 01 | Causal-chain hypothesis testing | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/thanachart/MADT6004/blob/main/Integrated%20Data%20Analytics%20Exercise/notebooks/01_causal_chain_hypothesis_testing.ipynb) |
+| 02 | Batch forecasting (SKU × Branch) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/thanachart/MADT6004/blob/main/Integrated%20Data%20Analytics%20Exercise/notebooks/02_batch_forecasting_sku_branch.ipynb) |
+| 03 | Campaign response classification | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/thanachart/MADT6004/blob/main/Integrated%20Data%20Analytics%20Exercise/notebooks/03_campaign_response_classification.ipynb) |
+| 04 | Segmentation + recommendation | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/thanachart/MADT6004/blob/main/Integrated%20Data%20Analytics%20Exercise/notebooks/04_segmentation_recommendation.ipynb) |
+| 05 | Thai text analytics | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/thanachart/MADT6004/blob/main/Integrated%20Data%20Analytics%20Exercise/notebooks/05_thai_text_analytics.ipynb) |
+
+Colab opens the notebook on its own — it does not pull the dataset. Add this cell at the top of any notebook to bring `data/brewlab.db` into the runtime:
+
+```python
+!git clone https://github.com/thanachart/MADT6004.git
+%cd "MADT6004/Integrated Data Analytics Exercise/notebooks"
+```
+
 ---
 
 ## What's in `data/brewlab.db`
