@@ -64,6 +64,8 @@ Open and run notebooks **01 → 05** in sequence. Each is self-contained but the
 
 Each notebook starts with a bootstrap cell that clones the repo into the Colab runtime on first run, so `data/brewlab.db` is in place before any analysis cell. In local Jupyter the bootstrap is a no-op.
 
+**If Colab can't open a notebook from GitHub** (a known Colab bug with URL-encoded spaces): [download the whole repo as a ZIP](https://github.com/thanachart/MADT6004/archive/refs/heads/main.zip), unzip it, then upload the `Integrated Data Analytics Exercise/` folder to your Drive. Open the notebooks from Drive in Colab — the bootstrap still pulls the dataset on first run.
+
 ---
 
 ## What's in `data/brewlab.db`
