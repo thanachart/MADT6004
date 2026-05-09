@@ -62,12 +62,7 @@ Open and run notebooks **01 → 05** in sequence. Each is self-contained but the
 | 04 | Segmentation + recommendation | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/thanachart/MADT6004/blob/main/Integrated%20Data%20Analytics%20Exercise/notebooks/04_segmentation_recommendation.ipynb) |
 | 05 | Thai text analytics | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/thanachart/MADT6004/blob/main/Integrated%20Data%20Analytics%20Exercise/notebooks/05_thai_text_analytics.ipynb) |
 
-Colab opens the notebook on its own — it does not pull the dataset. Add this cell at the top of any notebook to bring `data/brewlab.db` into the runtime:
-
-```python
-!git clone https://github.com/thanachart/MADT6004.git
-%cd "MADT6004/Integrated Data Analytics Exercise/notebooks"
-```
+Each notebook starts with a bootstrap cell that clones the repo into the Colab runtime on first run, so `data/brewlab.db` is in place before any analysis cell. In local Jupyter the bootstrap is a no-op.
 
 ---
 
