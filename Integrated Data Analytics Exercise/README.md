@@ -14,7 +14,7 @@ Brew Lab BKK is a 12-branch specialty coffee chain across Bangkok with ~5,000 ac
 
 | # | Question | Module | Technique |
 |---|----------|--------|-----------|
-| 1 | What actually drives daily branch revenue? | 01 | Causal-chain hypothesis sweep + FDR + interaction regression |
+| 1 | What actually drives daily branch revenue? | 01 | Causal-chain hypothesis sweep + interaction regression |
 | 2 | How much will each SKU sell at each branch over the next 30 days? | 02 | Batch forecasting (Naive / Seasonal Naive / Holt-Winters) |
 | 3 | Of the next batch of lapsed members, who will respond to the comeback voucher? | 03 | Imbalanced classification with sampling × algorithm grid |
 | 4 | How many real *types* of customer do we have, and what should we put in front of them? | 04 | Customer single view → k-means → item-item recommendation |
@@ -70,18 +70,6 @@ Open and run notebooks **01 → 05** in sequence. Each is self-contained but the
 
 ---
 
-## Engineered signal — what each module finds
-
-The data is *not* random. Patterns are seeded so that running the analysis surfaces real, defensible findings. Highlights:
-
-- **Module 1** — drive-thru branches earn lower revenue *overall* (lower-prestige districts) but have a *larger weekend lift*. The naive t-test gets it wrong; the regression interaction reveals the truth. Teaching gold.
-- **Module 2** — strong weekly seasonality + mild upward trend. Seasonal naive often beats Holt-Winters on small SKUs.
-- **Module 3** — 11% positive class. SMOTE + XGBoost typically wins. Top-decile lift is ~2.5–3×.
-- **Module 4** — k-means cleanly recovers the four engineered segments (Daily Loyalist, Weekend Bruncher, App Promo Hunter, Casual Drifter).
-- **Module 5** — Thonglor branch shows a **leading indicator**: negative review volume spikes from ~23% to ~63% in the last six weeks while average rating stays flat. Numbers say everything's fine. Reviews say it isn't.
-
----
-
 ## How the modules connect
 
 ```
@@ -115,34 +103,18 @@ Integrated Data Analytics Exercise/
 │   ├── 02_batch_forecasting_sku_branch.ipynb
 │   ├── 03_campaign_response_classification.ipynb
 │   ├── 04_segmentation_recommendation.ipynb
-│   ├── 05_thai_text_analytics.ipynb
-│   └── _nbutil.py                  # internal: notebook builder helper
+│   └── 05_thai_text_analytics.ipynb
 └── slides/
     └── MADT6004_Wrap_Up_Session.pptx
 ```
 
 ---
 
-## Suggested time budget — 3-hour session
+## Setup notes
 
-| Time | Section |
-|------|---------|
-| 5 min | Cold open — Khun Ploy's panic, the five questions |
-| 50 min | **Module 1** — hypothesis sweep, FDR, interaction reveal |
-| 55 min | **Module 2** — forecast loop, RMSE comparison, the 30-day output |
-| 30 min | **Module 3** — sampling × algorithm grid, lift table |
-| 30 min | **Module 4** — single view, segments, recommendation network |
-| 25 min | **Module 5** — Thai tokenization, bi-gram net, the Thonglor reveal |
-| 15 min | Close — loop closes, integration thread, "this is real practice" |
-
----
-
-## Notes for instructors
-
-- **PyThaiNLP NER** requires a corpus download (`pythainlp data get thainer-1.4`). The notebook falls back to POS-based noun/adjective extraction, which works without internet and is good enough for the demonstration.
-- **XGBoost** in Module 3 trains in seconds even with the SMOTE × algorithm grid. If a student's machine is slow, drop SVM (it's the slowest).
+- **PyThaiNLP NER** requires a corpus download (`pythainlp data get thainer-1.4`). If you skip it, the Module 5 notebook falls back to POS-based noun/adjective extraction, which works without internet.
+- **XGBoost** in Module 3 trains in seconds even with the SMOTE × algorithm grid. If your machine is slow, drop SVM (it's the slowest combination).
 - **Thai font rendering** in matplotlib may need a font install on macOS/Windows. The notebook sets `Noto Sans Thai` with `DejaVu Sans` fallback; on Thai-keyboard machines it usually just works.
-- The notebooks are designed for **vibe-coding live demo** mode — instructors can run them as-is, or use them as a *target output* while live-prompting an AI assistant to recreate the analyses.
 
 ---
 
